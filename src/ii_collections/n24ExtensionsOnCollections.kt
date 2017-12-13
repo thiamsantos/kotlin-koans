@@ -5,4 +5,3 @@ fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection
 
     return groupsByLength.values.maxBy { it.count() }
 }
-

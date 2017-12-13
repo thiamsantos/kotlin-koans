@@ -6,7 +6,7 @@ import util.doc25
 fun todoTask25(): Nothing = TODO(
     """
         Task 25.
-        Uncomment the commented line and make it compile. 
+        Uncomment the commented line and make it compile.
         Make all the changes to the file MyDate.kt.
 
         Tips: Make the class 'MyDate' implement 'Comparable'.
@@ -16,7 +16,6 @@ fun todoTask25(): Nothing = TODO(
 )
 
 fun task25(date1: MyDate, date2: MyDate): Boolean {
-    todoTask25()
-//    return date1 < date2
+    return date1 < date2
 }
 
