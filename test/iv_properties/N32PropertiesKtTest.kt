@@ -4,7 +4,8 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class N32PropertiesKtTest {
-    @Test fun testPropertyWithCounter() {
+    @Test
+    fun testPropertyWithCounter() {
         val q = PropertyExample()
         q.propertyWithCounter = 14
         q.propertyWithCounter = 21
@@ -14,5 +15,4 @@ class N32PropertiesKtTest {
         // Here we have to use !! due to false smart cast impossible
         assertEquals("The property q.propertyWithCounter should be set:", 32, q.propertyWithCounter!!)
     }
-
 }
