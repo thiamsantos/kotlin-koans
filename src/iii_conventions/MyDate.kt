@@ -2,10 +2,14 @@ package iii_conventions
 
 import java.util.*
 
+data class TimeIntervalTimes(val timeInterval: TimeInterval, val amount: Int)
+
 enum class TimeInterval {
     DAY,
     WEEK,
-    YEAR
+    YEAR;
+
+    operator fun times(amount: Int): TimeIntervalTimes = TimeIntervalTimes(this, amount)
 }
 
 data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparable<MyDate> {
@@ -19,9 +23,17 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
         return DateRange(this, end)
     }
 
-    fun nextDay() = addTimeIntervals(TimeInterval.DAY, 1)
+    fun nextDay() = addTimeIntervals(TimeInterval.DAY)
 
-    fun addTimeIntervals(timeInterval: TimeInterval, number: Int): MyDate {
+    operator fun plus(timeInterval: TimeInterval): MyDate {
+        return addTimeIntervals(timeInterval)
+    }
+
+    operator fun plus(times: TimeIntervalTimes): MyDate {
+        return addTimeIntervals(times.timeInterval, times.amount)
+    }
+
+    fun addTimeIntervals(timeInterval: TimeInterval, number: Int = 1): MyDate {
         val c = Calendar.getInstance()
         c.set(year, month, dayOfMonth)
         when (timeInterval) {
