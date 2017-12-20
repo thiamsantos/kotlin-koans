@@ -1,15 +1,8 @@
 package v_builders.examples
 
-fun todoTask38(): Nothing = TODO(
-    """
-        Task 38.
-        The previous examples can be rewritten with the library function 'apply' (see examples below).
-        Write your own implementation of the function 'apply' named 'myApply'.
-    """
-)
-
 fun <T> T.myApply(f: T.() -> Unit): T {
-    todoTask38()
+    f()
+    return this
 }
 
 fun buildString(): String {
